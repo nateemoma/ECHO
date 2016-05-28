@@ -1,0 +1,69 @@
+﻿<div class="container">
+
+    <div class="row">
+        <div class="col-md-6">
+            <a href="#/admin/product/create" class="btn btn-success">
+                Create
+            </a>
+            <button class="btn btn-default">
+                Export
+            </button>
+        </div>
+        <div class="col-md-6 text-right">
+            <button class="btn btn-sm btn-default">
+                <i class="fa fa-th-large"></i>
+            </button>
+            <button class="btn btn-sm btn-default">
+                <i class="fa fa-align-justify"></i>
+            </button>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <div class="portlet portlet-default">
+                <div class="portlet-header">
+                    <h3 class="portlet-title"><u>Member List</u></h3>
+                </div>
+                <div class="portlet-body">
+                    <div ng-repeat="item in [0,1,2]">
+                        <div class="row">
+                            <div class="col-lg-2 col-md-3 col-sm-4">
+                                <div class="profile-avatar">
+                                    <img src="../../global/img/avatars/avatar-2-lg.jpg" class="thumbnail" height="100" alt="Profile Image">
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-7 col-sm-5">
+                                <ul class="icons-list">
+                                    <li><i class="icon-li fa fa-envelope"></i> support@jumpstartthemes.com</li>
+                                    <li><i class="icon-li fa fa-globe"></i> jumstartthemes.com</li>
+                                    <li><i class="icon-li fa fa-map-marker"></i> Las Vegas, NV</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-3">
+                                <ul id="myTab" class="nav nav-pills nav-stacked">
+                                    <li class="btn btn-info">
+                                        <i class="fa fa-list-alt"></i> View
+                                    </li>
+
+                                    <li class="btn btn-warning">
+                                        <i class="fa fa-pencil-square-o"></i> Edit
+                                    </li>
+
+                                    <li class="btn btn-danger">
+                                        <i class="fa fa-times"></i> Delete
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div> 
+            </div> 
+        </div>
+    </div>
+    
+
+</div>

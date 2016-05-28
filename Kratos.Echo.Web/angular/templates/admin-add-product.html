@@ -1,0 +1,136 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+
+        </div>
+        <div class="col-md-6 text-right">
+            <button class="btn btn-success" ng-click="ctrl.saveChanges()">
+                SaveChanges
+            </button>
+            <a href="#/admin/product" class="btn btn-default">
+                Cancel
+            </a>
+        </div>
+    </div>
+
+    <div class="portlet portlet-default">
+        <div class="portlet-body">
+
+            <div class="layout layout-stack-sm layout-main-left">
+
+                <div id="faq-questions" class="col-sm-12">
+                    <div class="heading-block">
+                        <h4>
+                            Create Product
+                        </h4>
+                    </div>
+                    <div class="portlet-body">
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <!--<div class="fileinput fileinput-new" data-provides="fileinput">
+                                    <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                        <img src="{{ctrl.srcPreviews[0] == null ? 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOTAiIGhlaWdodD0iMTQwIj48cmVjdCB3aWR0aD0iMTkwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9Ijk1IiB5PSI3MCIgc3R5bGU9ImZpbGw6I2FhYTtmb250LXdlaWdodDpib2xkO2ZvbnQtc2l6ZToxMnB4O2ZvbnQtZmFtaWx5OkFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmO2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjE5MHgxNDA8L3RleHQ+PC9zdmc+' : ctrl.srcPreviews[0]}}" alt="..." style="height: 150px">
+                                    </div>
+                                    <div>
+                                    </div>
+                                </div>-->
+                                <div class="thumbnail">
+                                    <div class="thumbnail-view">
+                                        <a class="thumbnail-view-hover thumbnail-view-hover-lg ui-lightbox"
+                                           ng-click="ctrl.addImageCollection()">
+                                            <i class="fa fa-plus"></i>
+                                        </a>
+                                        <img style="width: 100%" src="{{ctrl.srcPreviews[0] == null ? 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOTAiIGhlaWdodD0iMTQwIj48cmVjdCB3aWR0aD0iMTkwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9Ijk1IiB5PSI3MCIgc3R5bGU9ImZpbGw6I2FhYTtmb250LXdlaWdodDpib2xkO2ZvbnQtc2l6ZToxMnB4O2ZvbnQtZmFtaWx5OkFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmO2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjE5MHgxNDA8L3RleHQ+PC9zdmc+' : ctrl.srcPreviews[0]}}" alt="...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <form>
+                                    <div class="form-group">
+                                        <label class="control-label" for="name">Product Name</label>
+                                        <input type="text" id="name" name="name" class="form-control" ng-model="ctrl.formData.Name">
+                                        <ul class="parsley-error-list" id="parsley-id-8195"></ul>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label" for="validateSelect">Description</label>
+                                        <textarea class="form-control" rows="5" ng-model="ctrl.formData.Description"></textarea>
+                                        <ul class="parsley-error-list" id="parsley-id-7939"></ul>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <br><br>
+
+                    <div class="heading-block">
+                        <h4>
+                            Image Management
+                        </h4>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-2 col-sm-6" ng-if="$index > 0" ng-repeat="src in ctrl.srcPreviews">
+                            <div class="thumbnail">
+                                <div class="thumbnail-view">
+                                    <a class="thumbnail-view-hover thumbnail-view-hover-lg ui-lightbox">
+                                        <i class="fa fa-arrows-alt"></i>
+                                    </a>
+                                    <img src="{{src}}" style="height: 140px" alt="Gallery Image">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2 col-sm-6">
+                            <div class="thumbnail">
+                                <div class="thumbnail-view">
+                                    <a class="thumbnail-view-hover thumbnail-view-hover-lg ui-lightbox"
+                                       ng-click="ctrl.addImageCollection()">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                    <img style="width: 100%" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOTAiIGhlaWdodD0iMTQwIj48cmVjdCB3aWR0aD0iMTkwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9Ijk1IiB5PSI3MCIgc3R5bGU9ImZpbGw6I2FhYTtmb250LXdlaWdodDpib2xkO2ZvbnQtc2l6ZToxMnB4O2ZvbnQtZmFtaWx5OkFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmO2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjE5MHgxNDA8L3RleHQ+PC9zdmc+" alt="...">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <br><br>
+
+                    <div class="heading-block">
+                        <h4>
+                            Information
+                        </h4>
+                    </div>
+                    <div class="portlet-body">
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <select class="form-control" ng-model="ctrl.productType" ng-change="ctrl.productTypeChanged(ctrl.productType)">
+                                    <option value="Information">Information</option>
+                                    <option value="Voucher1">Voucher#1</option>
+                                    <option value="Voucher2">Voucher#2</option>
+                                    <option value="Birthday1">Birthday#1</option>
+                                    <option value="Birthday2">Birthday#2</option>
+                                </select>
+                            </div>
+
+                            <!-- Include patail -->
+                            <div class="col-sm-6" ng-include="ctrl.currentTemplate.url">
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div> 

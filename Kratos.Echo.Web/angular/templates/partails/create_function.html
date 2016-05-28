@@ -1,0 +1,43 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Create Function Type</h3>
+</div>
+<div class="modal-body">
+
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-md-3 control-label">Function Path</label>
+            <div class="col-md-7">
+                <input type="text" name="functionPath" ng-model="formData.FunctionPath" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label">Function Name</label>
+            <div class="col-md-7">
+                <input type="text" name="functionName" ng-model="formData.FunctionName" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label">Function Url</label>
+            <div class="col-md-7">
+                <input type="text" name="functionUrl" ng-model="formData.FunctionUrl" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label">Function Types</label>
+            <div class="col-md-7">
+                <div class="col-lg-6" ng-repeat="item in ctrl.functionTypes">
+                    <input type="checkbox" ng-model="item.Checked" /> {{item.Name}}
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" type="button" ng-click="ok()">OK</button>
+    <button class="btn btn-danger" type="button" ng-click="cancel()">Cancel</button>
+</div>
