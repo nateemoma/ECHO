@@ -2,7 +2,7 @@
 
     'use-strict'
 
-    var AdminProductAddCtrl = function ($uibModal, adminProductService) {
+    var AdminProductAddCtrl = function ($uibModal, AdminProductService) {
         
         var vm = this;
 
@@ -151,7 +151,7 @@
             
             console.log(vm.formData)
 
-            adminProductService.create(vm.formData, vm.imageList)
+            AdminProductService.create(vm.formData, vm.imageList)
             .success(function (res) {
                 console.log(res)
             })

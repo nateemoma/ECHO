@@ -2,69 +2,34 @@
 
     'use-strict'
 
-    var AdminFunctionCtrl = function ($scope, $uibModal, CommonService, AdminFunctionService) {
+    var AdminAccessManagementOrganizeCtrl = function ($uibModal, CommonService, AdminAccessManagementService) {
 
-        var vm = this;
-        
+        var vm              = this;
+
+        this.formData       = {};
         this.functionTypes  = [];
-        this.functions      = [];
+        this.organizations  = [];
 
-        this.formData = {
-            FunctionTypes: []
-        };
 
         // load function type
-        AdminFunctionService
-            .getFunctionTypes({})
+        AdminAccessManagementService
+            .getOrganizations({})
             .then(function (response) {
-                console.log(response)
-                vm.functionTypes = response.data;
-            });
-
-        // load function
-        AdminFunctionService
-            .getFunctions({})
-            .then(function (response) {
-                console.log(response)
-                vm.functions = response.data;
+                vm.organizations = response.data;
             });
 
 
-        // create function
+        // create function type
         this.create = function () {
             $uibModal.open({
-                templateUrl: 'angular/templates/partails/create_function.html',
-                size: 'lg',
-                scope: $scope,
-                controller: function ($scope, $uibModalInstance) {
-
-                    $scope.ok = function (data) {
-                        AdminFunctionService.createFunction(data)
-                        .then(function (response) {
-                            $uibModalInstance.close();
-                        });
-                    };
-
-                    $scope.cancel = function () {
-                        $uibModalInstance.dismiss();
-                    };
-                }
-            });
-        };
-
-        // edit function
-        this.edit = function (item) {
-            $uibModal.open({
-                templateUrl: 'angular/templates/partails/create_function.html',
+                templateUrl: 'angular/templates/partails/create_function_type.html',
                 size: 'lg',
                 controller: function ($scope, $uibModalInstance) {
 
-                    $scope.formData = {
-                        FunctionType: item.Name
-                    };
+                    $scope.formData = {};
 
                     $scope.ok = function (data) {
-                        AdminFunctionService.updateFunctionType(data)
+                        AdminAccessManagementService.createFunctionType(data)
                         .then(function (response) {
                             $uibModalInstance.close(response);
                         });
@@ -77,7 +42,32 @@
             });
         };
 
-        // delete function
+        // edit function type
+        this.edit = function (item) {
+            $uibModal.open({
+                templateUrl: 'angular/templates/partails/create_function_type.html',
+                size: 'lg',
+                controller: function ($scope, $uibModalInstance) {
+
+                    $scope.formData = {
+                        FunctionType: item.Name
+                    };
+
+                    $scope.ok = function (data) {
+                        AdminAccessManagementService.updateFunctionType(data)
+                        .then(function (response) {
+                            $uibModalInstance.close(response);
+                        });
+                    };
+
+                    $scope.cancel = function () {
+                        $uibModalInstance.dismiss();
+                    };
+                }
+            });
+        };
+
+        // delete function type
         this.delete = function (item) {
             CommonService.modalConfirm('Are you sure!!')
             .then(function (data) {
@@ -89,6 +79,6 @@
 
     // inject
     angular.module('kratosEcho.product')
-    .controller('AdminFunctionCtrl', AdminFunctionCtrl);
+    .controller('AdminAccessManagementOrganizeCtrl', AdminAccessManagementOrganizeCtrl);
 
 })()

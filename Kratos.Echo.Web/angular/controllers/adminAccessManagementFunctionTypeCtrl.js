@@ -2,7 +2,7 @@
 
     'use-strict'
 
-    var AdminFunctionTypeCtrl = function ($uibModal, CommonService, AdminFunctionService) {
+    var AdminAccessManagementFunctionTypeCtrl = function ($uibModal, CommonService, AdminAccessManagementService) {
 
         var vm              = this;
 
@@ -10,7 +10,7 @@
         this.functionTypes  = [];
 
         // load function type
-        AdminFunctionService
+        AdminAccessManagementService
             .getFunctionTypes({})
             .then(function (response) {
                 vm.functionTypes = response.data;
@@ -27,7 +27,7 @@
                     $scope.formData = {};
 
                     $scope.ok = function (data) {
-                        AdminFunctionService.createFunctionType(data)
+                        AdminAccessManagementService.createFunctionType(data)
                         .then(function (response) {
                             $uibModalInstance.close(response);
                         });
@@ -52,7 +52,7 @@
                     };
 
                     $scope.ok = function (data) {
-                        AdminFunctionService.updateFunctionType(data)
+                        AdminAccessManagementService.updateFunctionType(data)
                         .then(function (response) {
                             $uibModalInstance.close(response);
                         });
@@ -77,6 +77,6 @@
 
     // inject
     angular.module('kratosEcho.product')
-    .controller('AdminFunctionTypeCtrl', AdminFunctionTypeCtrl);
+    .controller('AdminAccessManagementFunctionTypeCtrl', AdminAccessManagementFunctionTypeCtrl);
 
 })()

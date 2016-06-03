@@ -1,0 +1,83 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Create Function</h3>
+</div>
+<div class="modal-body">
+
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-md-3 control-label">Role Name</label>
+            <div class="col-md-7">
+                <input type="text" name="roleName" ng-model="formData.Name" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label">Function Name</label>
+            <div class="col-md-7">
+                <select class="form-control" 
+                        ng-model="functionOption" 
+                        ng-options="item as item.Name for item in functions"
+                        ng-change="functionChanges(functionOption)"></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label">Function Types</label>
+            <div class="col-md-7">
+                <label class="control-label" ng-show="functionOption == null">Please select function name</label>
+                <div class="col-md-6" ng-repeat="item in functionTypes"  ng-show="functionOption != null">
+                    <input type="checkbox" ng-model="item.Checked" /> {{item.Name}}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-7 text-right">
+                <button class="btn btn-success" ng-click="addAccessPrivileges(functionOption)">
+                    <i class="fa fa-plus"></i> Add
+                </button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-7">
+                <label class="control-label text-center" ng-show="formData.Fuetrues.length == 0"></label>
+                <table 
+                       ng-show="formData.Fuetrues.length > 0"
+                       class="table table-striped table-bordered table-hover ui-datatable">
+                    <thead>
+                        <tr>
+                            <th data-sortable="true" data-direction="desc">Function Path</th>
+                            <th data-sortable="true" data-direction="desc">Function Key</th>
+                            <th data-sortable="true" data-direction="desc">Function Name</th>
+                            <th data-sortable="true">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in formData.Fuetrues">
+                            <td>{{item.Path}}</td>
+                            <td>{{item.Key}}</td>
+                            <td>{{item.Name}}</td>
+                            <td>
+                                <!--<button class="btn btn-sm btn-info" ng-click="editAccessPrivilege(item)">
+                                    <i class="fa fa-times"></i>
+                                </button>-->
+                                <button class="btn btn-sm btn-danger" ng-click="deleteAccessPrivilege(item)">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" type="button" ng-click="ok(formData)">OK</button>
+    <button class="btn btn-danger" type="button" ng-click="cancel()">Cancel</button>
+</div>

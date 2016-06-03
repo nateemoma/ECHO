@@ -1,0 +1,58 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Create Function</h3>
+</div>
+<div class="modal-body">
+
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-md-3 control-label">Organization Path</label>
+            <div class="col-md-7">
+                <input type="text" name="organizationPath" ng-model="formData.OrganizationPath" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label">Organization Key</label>
+            <div class="col-md-7">
+                <input type="text" name="organizationKey" ng-model="formData.PositionKey" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label">Organization Name</label>
+            <div class="col-md-7">
+                <input type="text" name="organizationName" ng-model="formData.Position" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-7">
+                <input type="radio" name="specific" ng-model="specificType" class="form-control" />
+                <input type="radio" name="specific" ng-model="specificType" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label">Function Name</label>
+            <div class="col-md-7">
+                <input type="text" name="functionName" ng-model="formData.FunctionName" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label">Function Types</label>
+            <div class="col-md-7">
+                <div class="col-lg-6" ng-repeat="item in functionTypes">
+                    <input type="checkbox" ng-model="item.Checked" /> {{item.Name}}
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" type="button" ng-click="ok(formData)">OK</button>
+    <button class="btn btn-danger" type="button" ng-click="cancel()">Cancel</button>
+</div>

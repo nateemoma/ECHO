@@ -2,9 +2,18 @@
 
     'use-strict'
     
-    var adminProductService = function ($http, serviceUrl) {
+    var AdminProductService = function ($http, serviceUrl) {
 
         var service = {};
+
+        // get function type
+        service.getProducts = function (params) {
+            return $http({
+                method: 'POST',
+                url: serviceUrl + '/Product/Get',
+                data: params
+            });
+        };
 
         // create product
         service.create = function (model, files) {
@@ -29,7 +38,7 @@
 
     // inject
     angular.module('kratosEcho.service')
-    .factory('adminProductService', adminProductService);
+    .factory('AdminProductService', AdminProductService);
     
 
 })()

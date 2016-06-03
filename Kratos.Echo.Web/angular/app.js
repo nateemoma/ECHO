@@ -100,15 +100,32 @@
             },
             'product-create': {
                 name: 'admin.product.create',
-                url: '/admin/product/create',
+                url: '/admin/product/create/:id',
                 templateUrl: 'angular/templates/admin-add-product.html',
                 controller: 'AdminProductAddCtrl as ctrl'
             },
-            'function': {
-                name: 'admin.function',
-                url: '/admin/function',
-                templateUrl: 'angular/templates/admin-function.html',
-                //controller: 'AdminFunctionCtrl as ctrl'
+            'access-management': {
+                name: 'admin.access-management',
+                url: '/admin/access-management',
+                templateUrl: 'angular/templates/admin-access-management.html',
+                controller: function ($rootScope, $scope, $timeout) {
+
+                    $scope.templates = [
+                        { name: 'function-type.html', url: 'angular/templates/admin-access-management-function-type.html' },
+                        { name: 'function.html', url: 'angular/templates/admin-access-management-function.html' },
+                        { name: 'role.html', url: 'angular/templates/admin-access-management-role.html' },
+                        { name: 'organization.html', url: 'angular/templates/admin-access-management-organization.html' },
+                        { name: 'user-login.html', url: 'angular/templates/admin-access-management-user-login.html' },
+                        { name: 'application.html', url: 'angular/templates/admin-access-management-application.html' },
+                    ];
+                    $scope.template = $scope.templates[0];
+
+                    $scope.loadContent = function (template) {
+                        $timeout(function () {
+                            $scope.template = template;
+                        }, 100);
+                    };
+                }
             },
             'report': {
                 name: 'admin.report',

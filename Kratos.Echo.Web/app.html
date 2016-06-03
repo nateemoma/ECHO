@@ -220,8 +220,8 @@
 
                         <!-- Functions -->
                         <li class="dropdown ">
-                            <a href="#/admin/function" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-                                Functions
+                            <a href="#/admin/access-management" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+                                Access Management
                             </a>
                         </li>
 
@@ -240,6 +240,12 @@
 
         <div class="content">
             <div class="container" ui-view>
+
+            </div>
+            <div class="container" ui-view="viewMenu">
+
+            </div>
+            <div class="container" ui-view="viewContent">
 
             </div>
         </div> <!-- .content -->
@@ -288,14 +294,16 @@
     <script src="angular/config.js"></script>
     <script src="angular/services/common-service.js"></script>
     <script src="angular/factorys/adminProductService.js"></script>
-    <script src="angular/factorys/adminFunctionService.js"></script>
+    <script src="angular/factorys/adminAccessManagementService.js"></script>
 
     <!-- controllers -->
     <script src="angular/controllers/adminProductAddCtrl.js"></script>
     <script src="angular/controllers/adminProductListCtrl.js"></script>
 
-    <script src="angular/controllers/adminFunctionTypeCtrl.js"></script>
-    <script src="angular/controllers/adminFunctionCtrl.js"></script>
+    <script src="angular/controllers/adminAccessManagementFunctionTypeCtrl.js"></script>
+    <script src="angular/controllers/adminAccessManagementFunctionCtrl.js"></script>
+    <script src="angular/controllers/adminAccessManagementRoleCtrl.js"></script>
+    <script src="angular/controllers/adminAccessManagementOrganizeCtrl.js"></script>
 
 </body>
 </html>
